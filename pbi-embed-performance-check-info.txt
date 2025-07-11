@@ -1,44 +1,58 @@
 Power BI Embedded Report Stress Testing Tool
-
 Overview
-This tool is designed to simulate user activity and analyze server-side performance of Power BI Embedded reports. It automates interactions such as navigating between pages and applying filters, while monitoring server metrics (like CPU usage) to assess how well a report performs under different stress scenarios.
+This tool is built to simulate user interaction with Power BI Embedded reports and monitor backend server performance under load. It mimics real-world usage patterns by automating actions like navigating across report pages, applying filters, and tracking system resource usage such as CPU load.
 
-Features
-✅ Simulates multiple page navigations
+The tool supports token-based authentication (using Power BI Embed Tokens or Azure AD) to ensure secure, scoped access to reports, making it suitable for enterprise-level deployments.
 
-✅ Applies report-level filters dynamically
+🔐 Authentication
+Power BI Embedded supports two main authentication flows:
 
-✅ Tracks performance impact during usage
+Embed Token (App owns data) – For ISVs or apps embedding reports into custom portals
 
-✅ Helps identify bottlenecks in Power BI Embedded reports
+Azure AD + Service Principal (User owns data) – For secure organizational access with delegated permissions
 
-✅ Easy to plug into existing Power BI Embedded setups
+This tool assumes you're using one of these secure methods to generate access tokens and embed reports. You can easily integrate it into your existing token generation and embedding logic.
 
-Use Cases
-Stress Testing: Find performance limitations of your Power BI report under load.
+✅ Features
+Simulates multi-page navigation in embedded reports
 
-Optimization: Understand which filters or pages cause high server usage.
+Applies dynamic report-level filters
 
-Capacity Planning: Predict resource needs before rolling out dashboards to large user bases.
+Token-based authentication (Embed Token / Azure AD)
 
-Requirements
-Power BI Embedded setup
+Tracks server-side performance (e.g., CPU usage)
 
-Power BI Workspace with capacity
+Logs actions for debugging and optimization
 
-Azure Monitor / Performance Counters (for server CPU usage tracking)
+Compatible with Power BI REST API and JavaScript SDK
 
-Node.js or your preferred runtime environment (based on your implementation)
+🎯 Use Cases
+Stress Testing – Benchmark how your embedded report performs under simulated user load
 
-How It Works
-Authenticate to the Power BI REST API
+Optimization – Identify slow filters, visuals, or pages causing performance bottlenecks
 
-Embed a report with specified user context
+Capacity Planning – Forecast system load before scaling to hundreds/thousands of users
 
-Automatically switch pages within the report
+⚙️ Requirements
+Power BI Pro or Premium workspace with Embedded capacity
 
-Apply filters (e.g., slicers or report filters) programmatically
+Power BI REST API and JavaScript SDK
 
-Monitor performance metrics like CPU usage during each action
+Token-based authentication (Embed Token or Azure AD)
 
-Log or visualize the impact for further analysis
+Node.js or preferred runtime (based on how the automation is built)
+
+Performance monitoring via Azure Monitor, Windows Performance Counters, or custom logging
+
+🔄 How It Works
+Authenticate with Power BI using Embed Token or Azure AD
+
+Load the embedded report in a headless browser or automated frontend
+
+Navigate between pages programmatically (via JS API or simulated DOM interaction)
+
+Apply Filters (e.g., slicers or custom filter objects)
+
+Monitor CPU Usage during actions to detect spikes or slowdowns
+
+Log Results for later analysis and optimization
