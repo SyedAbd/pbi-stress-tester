@@ -1,0 +1,44 @@
+Power BI Embedded Report Stress Testing Tool
+
+Overview
+This tool is designed to simulate user activity and analyze server-side performance of Power BI Embedded reports. It automates interactions such as navigating between pages and applying filters, while monitoring server metrics (like CPU usage) to assess how well a report performs under different stress scenarios.
+
+Features
+✅ Simulates multiple page navigations
+
+✅ Applies report-level filters dynamically
+
+✅ Tracks performance impact during usage
+
+✅ Helps identify bottlenecks in Power BI Embedded reports
+
+✅ Easy to plug into existing Power BI Embedded setups
+
+Use Cases
+Stress Testing: Find performance limitations of your Power BI report under load.
+
+Optimization: Understand which filters or pages cause high server usage.
+
+Capacity Planning: Predict resource needs before rolling out dashboards to large user bases.
+
+Requirements
+Power BI Embedded setup
+
+Power BI Workspace with capacity
+
+Azure Monitor / Performance Counters (for server CPU usage tracking)
+
+Node.js or your preferred runtime environment (based on your implementation)
+
+How It Works
+Authenticate to the Power BI REST API
+
+Embed a report with specified user context
+
+Automatically switch pages within the report
+
+Apply filters (e.g., slicers or report filters) programmatically
+
+Monitor performance metrics like CPU usage during each action
+
+Log or visualize the impact for further analysis
