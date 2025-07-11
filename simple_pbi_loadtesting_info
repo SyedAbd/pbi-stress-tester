@@ -1,0 +1,29 @@
+Automated Stress Testing for Power BI Embedded Reports
+This project provides a Python-based automation framework to stress-test embedded Power BI reports using Flask and Selenium. It simulates real-world report rendering without applying filters or page navigation changes.
+
+🔧 Features:
+Embeds Power BI reports in a Flask web server.
+
+Uses Selenium to simulate viewing multiple reports across browser tabs.
+
+Automates the generation of access tokens using MSAL.
+
+Dynamically renders reports based on entries in the REPORTS list.
+
+🚀 How It Works:
+Authentication: MSAL is used to acquire an Azure AD token.
+
+Flask: Hosts a local server showing embedded Power BI reports.
+
+Selenium: Launches a browser, loads report pages in multiple tabs.
+
+Stress Testing: You can simulate multiple users viewing different reports.
+
+📦 Requirements:
+Python 3
+
+flask, selenium, msal, requests
+
+A registered Azure App with permissions to embed Power BI content
+
+ChromeDriver (or Brave browser + path specified)
